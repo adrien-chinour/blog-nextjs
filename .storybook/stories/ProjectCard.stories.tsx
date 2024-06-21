@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import ProjectCard from "../components/ProjectCard";
+import ProjectCard from "../../src/components/project/ProjectCard";
 
 const project = {
     name: 'highlight',

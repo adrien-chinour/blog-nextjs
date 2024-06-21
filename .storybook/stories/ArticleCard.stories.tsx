@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import ArticleCard from "../components/ArticleCard";
+import ArticleCard from "../../src/components/article/ArticleCard";
 
 const article = {
     id: 'id',
