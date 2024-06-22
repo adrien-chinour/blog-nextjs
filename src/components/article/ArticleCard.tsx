@@ -17,7 +17,7 @@ export default function ArticleCard({article, variant, asyncImage}: {
 
 function ArticleCardDefault({article, asyncImage}: { article: Article, asyncImage?: boolean }) {
     return (
-        <article className="mb-6 md:mb-0 md:flex-1 max-w-max">
+        <section className="mb-6 md:mb-0 md:flex-1 max-w-max">
             <a href={`/articles/${article.slug}`} className="group">
                 <Image
                     className="rounded mb-2 aspect-video"
@@ -32,13 +32,13 @@ function ArticleCardDefault({article, asyncImage}: { article: Article, asyncImag
                     <ArticleDescription description={article.description}/>
                 </div>
             </a>
-        </article>
+        </section>
     )
 }
 
 function ArticleCardInline({article, asyncImage}: { article: Article, asyncImage?: boolean }) {
     return (
-        <article className="mb-6">
+        <section className="mb-6">
             <a href={`/articles/${article.slug}`} className="group sm:flex">
                 <Image
                     className="rounded aspect-video sm:w-64"
@@ -54,7 +54,7 @@ function ArticleCardInline({article, asyncImage}: { article: Article, asyncImage
                     <ArticleDescription description={article.description}/>
                 </div>
             </a>
-        </article>
+        </section>
     )
 }
 

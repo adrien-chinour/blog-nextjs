@@ -8,10 +8,10 @@ export default function ArticleLayout({article}: { article: Article }) {
         <article>
             <ArticleHeader article={article}/>
             <ArticleContent article={article}/>
-            <div className="container-fit">
+            <aside className="container-fit">
                 <hr/>
                 <ArticleTags tags={article.tags}/>
-            </div>
+            </aside>
         </article>
     )
 }
