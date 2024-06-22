@@ -7,7 +7,7 @@ export default function ArticleHeader({article}: { article: Article }) {
         <header id="article-header" className="my-4 mx-3">
             <div className="container-fit">
                 <p className="uppercase text-muted text-xs font-bold">Publié le <LocalizedTime dateTime={article.publicationDate}/></p>
-                <h1 className="font-serif text-5xl mb-2 mt-3">{article.title}</h1>
+                <h1 className="title text-5xl mb-2 mt-3">{article.title}</h1>
                 <p className="text-lg text-muted">{article.description}</p>
             </div>
 

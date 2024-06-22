@@ -8,8 +8,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)'],
-        serif: ['var(--font-serif)'],
+        serif: ['serif'],
+        mono: ['mono'],
       },
     },
   },

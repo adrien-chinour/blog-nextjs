@@ -49,7 +49,7 @@ function ArticleCardInline({article}: { article: Article }) {
 
 function ArticleTitle({title}: { title: string }) {
     return (
-        <p className="text-xl font-serif my-1 group-hover:underline">{title}</p>
+        <p className="text-xl title my-1 group-hover:underline">{title}</p>
     )
 }
 
