@@ -11,7 +11,7 @@ export default async function Home() {
         <main className="px-4">
             <RowContent title="Les derniers articles." moreLink="/articles/">
                 <div className="md:flex gap-8 my-2">
-                    {articles.map((article) => <ArticleCard key={article.id} article={article}/>)}
+                    {articles.map((article, index) => <ArticleCard key={article.id} article={article} asyncImage={index !== 0}/>)}
                 </div>
             </RowContent>
 

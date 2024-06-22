@@ -2,22 +2,29 @@ import {Article} from "@/types/models";
 import Image from "next/image";
 import LocalizedTime from "@/components/LocalizedTime";
 
-export default function ArticleCard({article, variant}: { article: Article, variant?: 'default' | 'inline' }) {
+export default function ArticleCard({article, variant, asyncImage}: {
+    article: Article,
+    variant?: 'default' | 'inline' | undefined,
+    asyncImage?: boolean | undefined
+}) {
     switch (variant) {
         case 'inline':
-            return <ArticleCardInline article={article}/>
+            return <ArticleCardInline article={article} asyncImage={asyncImage}/>
         default:
-            return <ArticleCardDefault article={article}/>
+            return <ArticleCardDefault article={article} asyncImage={asyncImage}/>
     }
 }
 
-function ArticleCardDefault({article}: { article: Article }) {
+function ArticleCardDefault({article, asyncImage}: { article: Article, asyncImage?: boolean }) {
     return (
         <article className="mb-6 md:mb-0 md:flex-1 max-w-max">
             <a href={`/articles/${article.slug}`} className="group">
                 <Image
                     className="rounded mb-2 aspect-video"
-                    src={article.imageUrl} alt={article.title} width="600" height="337"
+                    src={article.imageUrl} alt={article.title}
+                    width="600"
+                    height="337"
+                    priority={asyncImage !== undefined && !asyncImage}
                 />
                 <div className="px-2 md:px-0">
                     <ArticlePublicationDate publicationDate={article.publicationDate}/>
@@ -29,13 +36,17 @@ function ArticleCardDefault({article}: { article: Article }) {
     )
 }
 
-function ArticleCardInline({article}: { article: Article }) {
+function ArticleCardInline({article, asyncImage}: { article: Article, asyncImage?: boolean }) {
     return (
         <article className="mb-6">
             <a href={`/articles/${article.slug}`} className="group sm:flex">
                 <Image
                     className="rounded aspect-video sm:w-64"
-                    src={article.imageUrl} alt={article.title} width="600" height="377"
+                    src={article.imageUrl}
+                    alt={article.title}
+                    width="600"
+                    height="377"
+                    priority={asyncImage !== undefined && !asyncImage}
                 />
                 <div className="p-2">
                     <ArticlePublicationDate publicationDate={article.publicationDate}/>
