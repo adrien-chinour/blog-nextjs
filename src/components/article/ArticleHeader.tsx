@@ -15,9 +15,9 @@ export default function ArticleHeader({article}: { article: Article }) {
                 className="rounded mt-4 mx-auto"
                 width="1200"
                 height="675"
-                loading="lazy"
                 src={article.imageUrl}
                 alt={article.title}
+                priority
             />
         </header>
     )
