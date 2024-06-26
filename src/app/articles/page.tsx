@@ -1,6 +1,8 @@
 import {getArticles} from "@/services/api";
 import ArticleCard from "@/components/article/ArticleCard";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Page() {
     const articles = await getArticles(20)
 

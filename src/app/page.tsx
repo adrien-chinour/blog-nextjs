@@ -4,6 +4,8 @@ import ProjectCard from "@/components/project/ProjectCard";
 import RowContent from "@/components/RowContent";
 import React from "react";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
     const [articles, projects] = await Promise.all([getArticles(3), getProjects(3)]);
 
