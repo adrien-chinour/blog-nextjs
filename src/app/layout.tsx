@@ -1,6 +1,9 @@
 import type {Metadata} from "next";
 import React from "react";
 
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -19,6 +22,8 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
         <Header/>
         {children}
         <Footer/>
+        <SpeedInsights/>
+        <Analytics/>
         </body>
         </html>
     );
