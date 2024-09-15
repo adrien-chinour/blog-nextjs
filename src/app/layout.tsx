@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 import "@/app/globals.css";
+import {VercelToolbar} from "@vercel/toolbar/next";
 
 export const metadata: Metadata = {
     title: "Undefined Blog",
@@ -15,16 +16,19 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
+    const shouldInjectToolbar = process.env.NODE_ENV === 'development';
+
     return (
         <html lang="fr">
-        <body
-            className={`container mx-auto max-w-7xl`}>
-        <Header/>
-        {children}
-        <Footer/>
-        <SpeedInsights/>
-        <Analytics/>
-        </body>
+            <body className={`container mx-auto max-w-7xl`}>
+                <Header/>
+                {children}
+                <Footer/>
+
+                <SpeedInsights/>
+                <Analytics/>
+                {shouldInjectToolbar && <VercelToolbar/>}
+            </body>
         </html>
     );
 }
