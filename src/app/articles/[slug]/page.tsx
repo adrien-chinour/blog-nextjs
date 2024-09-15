@@ -4,6 +4,9 @@ import type {Metadata} from 'next'
 import {Article} from "@/types/models";
 import {notFound} from "next/navigation";
 
+import "@/stylesheets/content.css";
+import "@/stylesheets/highlight.css";
+
 type Props = {
     params: { slug: string }
 }
