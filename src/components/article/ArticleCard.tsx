@@ -1,6 +1,7 @@
 import {Article} from "@/types/models";
 import Image from "next/image";
 import LocalizedTime from "@/components/LocalizedTime";
+import Link from "next/link";
 
 export default function ArticleCard({article, variant, asyncImage}: {
     article: Article,
@@ -18,7 +19,7 @@ export default function ArticleCard({article, variant, asyncImage}: {
 function ArticleCardDefault({article, asyncImage}: { article: Article, asyncImage?: boolean }) {
     return (
         <section className="mb-6 md:mb-0 md:flex-1 max-w-max">
-            <a href={`/articles/${article.slug}`} className="group">
+            <Link href={`/articles/${article.slug}`} className="group">
                 <Image
                     className="rounded mb-2 aspect-video"
                     src={article.imageUrl} alt={article.title}
@@ -31,7 +32,7 @@ function ArticleCardDefault({article, asyncImage}: { article: Article, asyncImag
                     <ArticleTitle title={article.title}/>
                     <ArticleDescription description={article.description}/>
                 </div>
-            </a>
+            </Link>
         </section>
     )
 }
@@ -39,7 +40,7 @@ function ArticleCardDefault({article, asyncImage}: { article: Article, asyncImag
 function ArticleCardInline({article, asyncImage}: { article: Article, asyncImage?: boolean }) {
     return (
         <section className="mb-6">
-            <a href={`/articles/${article.slug}`} className="group sm:flex">
+            <Link href={`/articles/${article.slug}`} className="group sm:flex">
                 <Image
                     className="rounded aspect-video sm:w-64"
                     src={article.imageUrl}
@@ -53,7 +54,7 @@ function ArticleCardInline({article, asyncImage}: { article: Article, asyncImage
                     <ArticleTitle title={article.title}/>
                     <ArticleDescription description={article.description}/>
                 </div>
-            </a>
+            </Link>
         </section>
     )
 }

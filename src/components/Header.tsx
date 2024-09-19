@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Header() {
     return (
         <header className="md:flex p-2 mb-4 mx-4 lg:mx-2 justify-between items-end">
@@ -6,8 +8,8 @@ export default function Header() {
             </h1>
             <nav>
                 <ul className="flex justify-center gap-4 text-lg font-serif">
-                    <li><a className="hover:underline" href="/articles">Articles</a></li>
-                    <li><a className="hover:underline" href="/projets">Projets</a></li>
+                    <li><Link className="hover:underline" href="/articles">Articles</Link></li>
+                    <li><Link className="hover:underline" href="/projets">Projets</Link></li>
                 </ul>
             </nav>
         </header>
