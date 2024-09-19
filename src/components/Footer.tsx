@@ -1,7 +1,9 @@
+import ThemeToggle from "@/components/ThemeToggle";
+
 export default function Footer() {
     return (
         <footer
-            className="flex justify-between py-6 mt-2 uppercase text-zinc-600 dark:text-zinc-400 text-xs font-bold px-4">
+            className="flex justify-between py-6 mt-2 items-center uppercase text-zinc-600 dark:text-zinc-400 text-xs font-bold px-4">
             <p>© Adrien Chinour</p>
             <ul className="flex gap-4">
                 <li>
@@ -17,6 +19,7 @@ export default function Footer() {
                     </a>
                 </li>
             </ul>
+            <ThemeToggle />
         </footer>
     )
 }
