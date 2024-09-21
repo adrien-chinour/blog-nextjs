@@ -15,6 +15,7 @@
     "@vercel/speed-insights": "^1.0.12",
     "@vercel/toolbar": "^0.1.15",
     "next": "14.2.3",
+    "openai": "^4.63.0",
     "react": "^18",
     "react-dom": "^18",
     "zod": "^3.23.8"
