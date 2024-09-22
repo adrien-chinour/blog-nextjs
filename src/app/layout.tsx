@@ -26,11 +26,15 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
 
     return (
         <html lang="fr" className={theme}>
-            <body className={`container mx-auto max-w-7xl`}>
+            <body>
                 <ThemeProvider>
-                    <Header/>
-                    {children}
-                    <Footer/>
+                    <div className={`container mx-auto max-w-7xl`}>
+                        <Header/>
+                        <div role="main">
+                            {children}
+                        </div>
+                        <Footer/>
+                    </div>
                 </ThemeProvider>
                 <SpeedInsights/>
                 <Analytics/>

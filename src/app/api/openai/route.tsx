@@ -8,7 +8,7 @@ const client = new OpenAI({
 async function explain(term: string): Promise<string | null> {
     try {
         const resp = await client.chat.completions.create({
-            messages: [{role: 'user', content: `Explique-moi ce terme "${term}" en 1 phrase.`}],
+            messages: [{role: 'user', content: `Explique-moi ce terme "${term}" en 1 phrase. En général le terme a un rapport avec un sujet tech.`}],
             model: 'gpt-3.5-turbo',
         });
 
