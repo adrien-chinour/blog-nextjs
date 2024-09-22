@@ -26,7 +26,7 @@ export default function AskOpenAi({children}: Readonly<{ children: ReactNode }>)
         <div onMouseUp={mouseUpHandler}>
             {children}
             {selection &&
-                <div className="sticky bottom-6 left-6">
+                <div className="fixed bottom-20 mx-8">
                     <AskButton content={selection}/>
                 </div>}
         </div>
@@ -64,10 +64,10 @@ function AskButton({content}: Readonly<{ content: string }>) {
     return (
         <button onClick={ask}
                 disabled={loading || result !== null}
-                className="transition-all rounded-full py-2 px-4 flex items-center font-medium bg-emerald-700 hover:bg-emerald-900 disabled:bg-gray-700">
+                className="transition-all rounded-full py-2 px-4 flex items-center font-medium bg-emerald-700 hover:bg-emerald-900 disabled:bg-gray-700 drop-shadow-md">
             <OpenAiIcon spin={loading}/>
             {result &&
-                <span className={`ml-2 text-left ${result.status === 'error' && 'text-red-400'}`}>
+                <span className={`ml-2 text-left text-white ${result.status === 'error' && 'text-red-400'}`}>
                     {result.message}
                 </span>
             }
