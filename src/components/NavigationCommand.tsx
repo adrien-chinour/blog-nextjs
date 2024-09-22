@@ -13,7 +13,7 @@ import {
     CommandList,
     CommandSeparator
 } from "@/components/ui/command";
-import {Layers, Newspaper, Text} from "lucide-react";
+import {Layers, Newspaper, Terminal} from "lucide-react";
 import {getHistory, HistoryItem} from "@/services/history";
 
 export function NavigationCommand() {
@@ -44,8 +44,8 @@ export function NavigationCommand() {
 
     return (
         <>
-            <button className="inline" onClick={() => setOpen(true)}>
-                <Text className="rotate-180" size={20}/>
+            <button className="inline" onClick={() => setOpen(true)} title="Menu commande (Ctrl+J / ⌘+J)">
+                <Terminal size={20}/>
             </button>
             <CommandDialog open={open} onOpenChange={setOpen}>
                 <CommandInput placeholder="Tape une commande ou une recherche..."/>
