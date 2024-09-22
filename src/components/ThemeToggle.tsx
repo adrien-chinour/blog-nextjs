@@ -17,7 +17,7 @@ export default function ThemeToggle() {
 
         document.addEventListener("keydown", down)
         return () => document.removeEventListener("keydown", down)
-    }, [theme])
+    }, [toggleTheme])
 
     return (
         <Switch checked={theme === 'dark'} onClick={() => toggleTheme()} title="Changer le thème (Ctrl+M / ⌘+M)"/>
