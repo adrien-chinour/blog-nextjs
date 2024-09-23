@@ -9,8 +9,9 @@ import Footer from "@/components/Footer";
 
 import "@/app/globals.css";
 import {VercelToolbar} from "@vercel/toolbar/next";
-import {ThemeProvider} from "@/contexts/ThemeContext";
+import {ThemeProvider} from "@/contexts/theme-context";
 import {cookies} from "next/headers";
+import {HistoryProvider} from "@/contexts/history-context";
 
 export const metadata: Metadata = {
     title: "Undefined Blog",
@@ -28,13 +29,15 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
         <html lang="fr" className={theme}>
             <body>
                 <ThemeProvider>
-                    <div className={`container mx-auto max-w-7xl`}>
-                        <Header/>
-                        <div role="main">
-                            {children}
+                    <HistoryProvider>
+                        <div className={`container mx-auto max-w-7xl`}>
+                            <Header/>
+                            <div role="main">
+                                {children}
+                            </div>
+                            <Footer/>
                         </div>
-                        <Footer/>
-                    </div>
+                    </HistoryProvider>
                 </ThemeProvider>
                 <SpeedInsights/>
                 <Analytics/>

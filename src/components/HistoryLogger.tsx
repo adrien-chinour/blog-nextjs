@@ -1,12 +1,13 @@
 "use client"
 
 import {useEffect} from "react";
-import {getHistory, pushToHistory} from "@/services/history";
+import {useHistory} from "@/contexts/history-context";
 
 export default function HistoryLogger({title, href}: Readonly<{ title: string, href: string }>) {
+    const {history, pushItem} = useHistory();
+
     useEffect(() => {
-        pushToHistory({type: 'article', title: title, href: href});
-        console.log(getHistory());
+        pushItem({type: 'article', title: title, href: href});
     }, [title, href])
 
     return (

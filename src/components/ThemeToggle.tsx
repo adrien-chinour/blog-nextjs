@@ -1,6 +1,6 @@
 "use client"
 
-import {useTheme} from "@/contexts/ThemeContext";
+import {useTheme} from "@/contexts/theme-context";
 import {Switch} from "@/components/ui/switch";
 import {useEffect} from "react";
 

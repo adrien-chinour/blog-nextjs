@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useState, useEffect, useContext, ReactNode } from 'react';
+import {createContext, ReactNode, useContext, useEffect, useState} from 'react';
 import {getCookie, setCookie} from "@/utils/cookies";
 
 interface ThemeContextProps {
@@ -15,14 +15,11 @@ export const useTheme = (): ThemeContextProps => {
     if (!context) {
         throw new Error('useTheme must be used within a ThemeProvider');
     }
+
     return context;
 };
 
-interface ThemeProviderProps {
-    children: ReactNode;
-}
-
-export function ThemeProvider({ children }: ThemeProviderProps) {
+export function ThemeProvider({children}: { children: ReactNode }) {
     const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
     useEffect(() => {
@@ -41,7 +38,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     };
 
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <ThemeContext.Provider value={{theme, toggleTheme}}>
             {children}
         </ThemeContext.Provider>
     );
