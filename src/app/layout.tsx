@@ -1,32 +1,27 @@
 import type {Metadata} from "next";
-import React from "react";
-
+import {ReactNode} from "react";
+import {cookies} from "next/headers";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import {ThemeProvider} from "@/contexts/theme-context";
+import {HistoryProvider} from "@/contexts/history-context";
+import {GoogleTagManager} from '@next/third-parties/google'
 import {SpeedInsights} from "@vercel/speed-insights/next"
 import {Analytics} from "@vercel/analytics/react"
 
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-
 import "@/app/globals.css";
-import {VercelToolbar} from "@vercel/toolbar/next";
-import {ThemeProvider} from "@/contexts/theme-context";
-import {cookies} from "next/headers";
-import {HistoryProvider} from "@/contexts/history-context";
 
 export const metadata: Metadata = {
     title: "Undefined Blog",
     description: "Undefined Blog",
 };
 
-export default function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
-    const shouldInjectToolbar = process.env.NODE_ENV === 'development';
-
-    // Theme is initialized on server side to fix flicker problem on theme switch
-    // ThemeProvider will handle cookie and toggle effect
+export default function RootLayout({children}: Readonly<{ children: ReactNode }>) {
     const theme = cookies().get('theme')?.value || 'light';
 
     return (
         <html lang="fr" className={theme}>
+            <GoogleTagManager gtmId="GTM-PZBJNQCM"/>
             <body>
                 <ThemeProvider>
                     <HistoryProvider>
@@ -41,7 +36,6 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
                 </ThemeProvider>
                 <SpeedInsights/>
                 <Analytics/>
-                {shouldInjectToolbar && <VercelToolbar/>}
             </body>
         </html>
     );
