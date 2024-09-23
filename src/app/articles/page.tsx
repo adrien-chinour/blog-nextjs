@@ -1,5 +1,5 @@
 import {getArticles} from "@/services/api";
-import ArticleCard from "@/components/article/ArticleCard";
+import ArticleCard from "@/components/article/article-card";
 
 export const dynamic = 'force-dynamic';
 

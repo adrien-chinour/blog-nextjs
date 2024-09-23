@@ -1,5 +1,5 @@
 import {Project} from "@/types/models";
-import Tag from "@/components/Tag";
+import Tag from "@/components/tag";
 
 export default function ProjectCard({project}: { project: Project }) {
     return (

@@ -1,6 +1,6 @@
 import {Article} from "@/types/models";
 import Image from "next/image";
-import LocalizedTime from "@/components/LocalizedTime";
+import LocalizedTime from "@/components/localized-time";
 
 export default function ArticleHeader({article}: { article: Article }) {
     return (

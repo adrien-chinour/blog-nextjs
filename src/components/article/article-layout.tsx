@@ -1,8 +1,8 @@
-import ArticleHeader from "@/components/article/ArticleHeader";
-import ArticleContent from "@/components/article/ArticleContent";
-import ArticleTags from "@/components/article/ArticleTags";
+import ArticleHeader from "@/components/article/article-header";
+import ArticleContent from "@/components/article/article-content";
+import ArticleTags from "@/components/article/article-tags";
 import {Article} from "@/types/models";
-import ArticleRecommendations from "@/components/article/ArticleRecommendations";
+import ArticleRecommendations from "@/components/article/article-recommendations";
 import {Suspense} from "react";
 
 export default function ArticleLayout({article}: { article: Article }) {

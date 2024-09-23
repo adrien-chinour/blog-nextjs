@@ -1,7 +1,7 @@
 import {getArticles, getProjects} from "@/services/api";
-import ArticleCard from "@/components/article/ArticleCard";
-import ProjectCard from "@/components/project/ProjectCard";
-import RowContent from "@/components/RowContent";
+import ArticleCard from "@/components/article/article-card";
+import ProjectCard from "@/components/project/project-card";
+import RowContent from "@/components/row-content";
 import React from "react";
 
 export const dynamic = 'force-dynamic';

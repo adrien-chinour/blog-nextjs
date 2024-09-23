@@ -2,7 +2,7 @@
 
 import {ReactNode, useState} from "react";
 
-export default function AskOpenAi({children}: Readonly<{ children: ReactNode }>) {
+export default function AskOpenai({children}: Readonly<{ children: ReactNode }>) {
     const [selection, setSelection] = useState<null | string>(null)
 
     const mouseUpHandler = () => {

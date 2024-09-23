@@ -1,12 +1,12 @@
 import {Article} from "@/types/models";
-import AskOpenAi from "@/components/openai/AskOpenAi";
+import AskOpenai from "@/components/openai/ask-openai";
 
 export default function ArticleContent({article}: {article: Article}) {
     const html = {__html: article.content};
 
     return (
-        <AskOpenAi>
+        <AskOpenai>
             <div id="article-content" className="container-fit" dangerouslySetInnerHTML={html}/>
-        </AskOpenAi>
+        </AskOpenai>
     )
 }

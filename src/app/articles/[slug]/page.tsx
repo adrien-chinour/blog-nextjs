@@ -1,12 +1,12 @@
 import {getArticle} from "@/services/api";
-import ArticleLayout from "@/components/article/ArticleLayout";
+import ArticleLayout from "@/components/article/article-layout";
 import type {Metadata} from 'next'
 import {Article} from "@/types/models";
 import {notFound} from "next/navigation";
 
 import "@/stylesheets/content.css";
 import "@/stylesheets/highlight.css";
-import HistoryLogger from "@/components/HistoryLogger";
+import HistoryLogger from "@/components/history-logger";
 
 type Props = {
     params: { slug: string }

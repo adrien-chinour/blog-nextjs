@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {NavigationCommand} from "@/components/NavigationCommand";
+import {NavigationCommand} from "@/components/navigation-command";
 import React from "react";
 
 export default function Header() {

@@ -4,8 +4,8 @@ import React from "react";
 import {SpeedInsights} from "@vercel/speed-insights/next"
 import {Analytics} from "@vercel/analytics/react"
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 import "@/app/globals.css";
 import {VercelToolbar} from "@vercel/toolbar/next";
