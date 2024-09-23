@@ -7,9 +7,8 @@ export default function HistoryLogger({title, href}: Readonly<{ title: string, h
     const {pushItem} = useHistory();
 
     useEffect(() => {
-        console.log("Push item on History Logger")
         pushItem({type: 'article', title: title, href: href});
-    }, []);
+    });
 
     return (
         <></>
