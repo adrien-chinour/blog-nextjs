@@ -32,7 +32,7 @@ export function NavigationCommand() {
         return () => document.removeEventListener("keydown", down)
     }, [])
 
-    const {history, pushItem, clearHistory} = useHistory()
+    const {history, clearHistory} = useHistory()
 
     const clear = () => {
         clearHistory();
@@ -45,7 +45,7 @@ export function NavigationCommand() {
         setOpen(false);
     }
 
-    const {theme, toggleTheme} = useTheme();
+    const {toggleTheme} = useTheme();
     const switchTheme = () => {
         toggleTheme();
         setOpen(false);

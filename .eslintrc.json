@@ -3,5 +3,8 @@
     "eslint:recommended",
     "next",
     "plugin:storybook/recommended"
-  ]
+  ],
+  "rules": {
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+  }
 }

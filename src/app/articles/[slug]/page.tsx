@@ -7,7 +7,6 @@ import {notFound} from "next/navigation";
 import "@/stylesheets/content.css";
 import "@/stylesheets/highlight.css";
 import HistoryLogger from "@/components/HistoryLogger";
-import {useHistory} from "@/contexts/history-context";
 
 type Props = {
     params: { slug: string }

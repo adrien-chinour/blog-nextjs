@@ -8,9 +8,9 @@ export type HistoryItem = {
     href: string,
 }
 
-interface HistoryContextProps {
+type HistoryContextProps = {
     history: HistoryItem[];
-    pushItem: (item: HistoryItem) => void;
+    pushItem: (_item: HistoryItem) => void;
     clearHistory: () => void;
 }
 
