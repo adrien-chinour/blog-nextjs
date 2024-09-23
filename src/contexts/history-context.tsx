@@ -49,7 +49,7 @@ export function HistoryProvider({children}: { children: ReactNode }) {
 
     const clearHistory = () => {
         window.localStorage.removeItem('history');
-        setHistory(getHistory())
+        setHistory([])
     }
 
     return <HistoryContext.Provider value={{history, pushItem, clearHistory}}>
