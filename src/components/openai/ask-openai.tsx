@@ -1,6 +1,7 @@
 "use client"
 
 import {ReactNode, useState} from "react";
+import {explain} from "@/actions/openai";
 
 export default function AskOpenai({children}: Readonly<{ children: ReactNode }>) {
     const [selection, setSelection] = useState<null | string>(null)
@@ -45,18 +46,12 @@ function AskButton({content}: Readonly<{ content: string }>) {
     const ask = async () => {
         setLoading(true)
 
-        try {
-            const response = await fetch(`/api/openai?term=${content}`);
-
-            if (!response.ok) {
-                setResult({status: 'error', message: "Oops ! J'ai planté... Ré-essaye pur voir."})
-            }
-
-            const message = (await response.json()) as { output: string };
-            setResult({status: 'success', message: message.output})
-        } catch (e) {
-            setResult({status: 'error', message: "Oops ! Y'a truc de planté là... Ré-essaye stp."})
-        }
+        const result = await explain(content);
+        setResult(
+            result === null
+                ? {status: 'error', message: "Oops ! Y'a truc de planté là... Ré-essaye stp."}
+                : {status: 'success', message: result}
+        )
 
         setLoading(false)
     }
