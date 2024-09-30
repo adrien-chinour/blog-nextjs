@@ -3,6 +3,7 @@ import {ReactNode} from "react";
 import {cookies} from "next/headers";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import FaroObservability from "@/components/system/faro-observability";
 import {ThemeProvider} from "@/contexts/theme-context";
 import {HistoryProvider} from "@/contexts/history-context";
 import {GoogleTagManager} from '@next/third-parties/google'
@@ -22,6 +23,7 @@ export default function RootLayout({children}: Readonly<{ children: ReactNode }>
     return (
         <html lang="fr" className={theme}>
             <GoogleTagManager gtmId="GTM-PZBJNQCM"/>
+            <FaroObservability />
             <body>
                 <ThemeProvider>
                     <HistoryProvider>
