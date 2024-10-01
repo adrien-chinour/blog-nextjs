@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {NavigationCommand} from "@/components/navigation-command";
 import React from "react";
+import {Search} from "lucide-react";
 
 export default function Header() {
     return (
@@ -12,6 +13,7 @@ export default function Header() {
                 <ul className="flex justify-center gap-4 font-medium">
                     <li><Link className="hover:underline" href="/articles">Articles</Link></li>
                     <li><Link className="hover:underline" href="/projets">Projets</Link></li>
+                    <li><Link className="hover:underline" href="/recherche"><Search width={18} /></Link></li>
                     <NavigationCommand/>
                 </ul>
             </nav>

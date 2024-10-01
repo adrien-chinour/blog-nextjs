@@ -23,12 +23,12 @@ export default function RootLayout({children}: Readonly<{ children: ReactNode }>
     return (
         <html lang="fr" className={theme}>
             <GoogleTagManager gtmId="GTM-PZBJNQCM"/>
-            <body>
+            <body className="min-h-screen">
                 <ThemeProvider>
                     <HistoryProvider>
-                        <div className={`container mx-auto max-w-7xl`}>
+                        <div className={`container mx-auto max-w-7xl min-h-screen flex flex-col`}>
                             <Header/>
-                            <div role="main">
+                            <div role="main" className="flex-grow">
                                 {children}
                             </div>
                             <Footer/>

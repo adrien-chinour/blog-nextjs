@@ -1,3 +1,5 @@
+"use server"
+
 import {z} from "zod";
 import {Article, Project} from "@/types/models";
 
@@ -29,21 +31,26 @@ const ProjectZodObject = z.object({
 })
 
 export const getArticles = async function (limit: number = 20): Promise<Article[]> {
-    const response = await fetch(`${apiHostname}/api/articles?limit=${limit}`, { next: { revalidate: 3600 } });
+    const response = await fetch(`${apiHostname}/api/articles?limit=${limit}`, {next: {revalidate: 3600}});
     return response.ok ? z.array(ArticleZodObject).parse(await response.json()) : []
 }
 
 export const getArticle = async function (slug: string): Promise<Article | null> {
-    const response = await fetch(`${apiHostname}/api/articles/${slug}`, { next: { revalidate: 3600 } });
+    const response = await fetch(`${apiHostname}/api/articles/${slug}`, {next: {revalidate: 3600}});
     return response.ok ? ArticleZodObject.parse(await response.json()) : null
 }
 
 export const getArticleRecommendations = async function (id: string): Promise<Article[]> {
-    const response = await fetch(`${apiHostname}/api/articles/${id}/recommendations`, { next: { revalidate: 600 } });
+    const response = await fetch(`${apiHostname}/api/articles/${id}/recommendations`, {next: {revalidate: 600}});
+    return response.ok ? z.array(ArticleZodObject).parse(await response.json()) : []
+}
+
+export const searchArticle = async function (term: string): Promise<Article[]> {
+    const response = await fetch(`${apiHostname}/api/search/articles?query=${term}`, {next: {revalidate: 3600}})
     return response.ok ? z.array(ArticleZodObject).parse(await response.json()) : []
 }
 
 export const getProjects = async function (limit: number = 10): Promise<Project[]> {
-    const response = await fetch(`${apiHostname}/api/projects?limit=${limit}`, { next: { revalidate: 3600 } });
+    const response = await fetch(`${apiHostname}/api/projects?limit=${limit}`, {next: {revalidate: 3600}});
     return response.ok ? z.array(ProjectZodObject).parse(await response.json()) : []
 }

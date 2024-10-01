@@ -13,7 +13,7 @@ import {
     CommandList,
     CommandSeparator
 } from "@/components/ui/command";
-import {Layers, Newspaper, SunMoon, Terminal, Trash2} from "lucide-react";
+import {Layers, Newspaper, Search, SunMoon, Terminal, Trash2} from "lucide-react";
 import {useTheme} from "@/contexts/theme-context";
 import {useHistory} from "@/contexts/history-context";
 
@@ -82,6 +82,10 @@ export function NavigationCommand() {
                         <CommandItem onSelect={() => goTo('/projets')}>
                             <Layers size={16} strokeWidth={1} className="mr-2"/>
                             <span>Aller à la page <strong>Projets</strong></span>
+                        </CommandItem>
+                        <CommandItem onSelect={() => goTo('/recherche')}>
+                            <Search size={16} strokeWidth={1} className="mr-2"/>
+                            <span>Aller à la page <strong>Recherche</strong></span>
                         </CommandItem>
                     </CommandGroup>
                     <CommandGroup heading="Paramètres">
