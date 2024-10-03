@@ -1,4 +1,4 @@
-import type {Metadata} from "next";
+import type {Metadata, Viewport} from "next";
 import {ReactNode} from "react";
 import {cookies} from "next/headers";
 import Header from "@/components/header";
@@ -16,6 +16,13 @@ export const metadata: Metadata = {
     title: "Undefined Blog",
     description: "Undefined Blog",
 };
+
+export const viewport: Viewport = {
+    width: 'width-device',
+    maximumScale: 1,
+    minimumScale: 1,
+    initialScale: 1,
+}
 
 export default function RootLayout({children}: Readonly<{ children: ReactNode }>) {
     const theme = cookies().get('theme')?.value || 'light';
