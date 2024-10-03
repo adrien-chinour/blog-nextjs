@@ -1,4 +1,4 @@
-import {Article} from "@/types/models";
+import {Article} from "@/types/types";
 import AskOpenai from "@/components/openai/ask-openai";
 
 export default function ArticleContent({article}: {article: Article}) {

@@ -1,7 +1,7 @@
 import ArticleHeader from "@/components/article/article-header";
 import ArticleContent from "@/components/article/article-content";
 import ArticleTags from "@/components/article/article-tags";
-import {Article} from "@/types/models";
+import {Article} from "@/types/types";
 import ArticleRecommendations from "@/components/article/article-recommendations";
 import {Suspense} from "react";
 

@@ -2,7 +2,7 @@
 
 import {Input} from "@/components/ui/input";
 import {FormEvent, useState} from "react";
-import {Article} from "@/types/models";
+import {Article} from "@/types/types";
 import {searchArticles} from "@/actions/search";
 import ArticleCard from "@/components/article/article-card";
 import {useDebouncedCallback} from "use-debounce";

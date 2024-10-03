@@ -1,7 +1,7 @@
 import {getArticle} from "@/services/api";
 import ArticleLayout from "@/components/article/article-layout";
 import type {Metadata} from 'next'
-import {Article} from "@/types/models";
+import {Article} from "@/types/types";
 import {notFound} from "next/navigation";
 
 import "@/stylesheets/content.css";

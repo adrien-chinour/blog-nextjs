@@ -1,5 +1,5 @@
 import {getArticleRecommendations} from "@/services/api";
-import {Article} from "@/types/models";
+import {Article} from "@/types/types";
 import Link from "next/link";
 import Image from "next/image";
 

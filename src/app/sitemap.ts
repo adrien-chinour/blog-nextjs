@@ -1,6 +1,6 @@
 import type {MetadataRoute} from 'next';
 import {getArticles} from "@/services/api";
-import {Article} from "@/types/models";
+import {Article} from "@/types/types";
 
 const hostname = process.env.HOSTNAME;
 

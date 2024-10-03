@@ -1,4 +1,4 @@
-import {Project} from "@/types/models";
+import {Project} from "@/types/types";
 import Tag from "@/components/tag";
 
 export default function ProjectCard({project}: { project: Project }) {

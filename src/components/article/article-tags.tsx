@@ -1,4 +1,4 @@
-import {Tag} from "@/types/models";
+import {Tag} from "@/types/types";
 import {default as TagItem} from "@/components/tag"
 
 export default function ArticleTags({tags}: { tags: Tag[] }) {

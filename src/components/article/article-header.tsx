@@ -1,4 +1,4 @@
-import {Article} from "@/types/models";
+import {Article} from "@/types/types";
 import Image from "next/image";
 import LocalizedTime from "@/components/localized-time";
 
