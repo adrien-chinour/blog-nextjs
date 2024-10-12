@@ -13,7 +13,7 @@ import {
     CommandList,
     CommandSeparator
 } from "@/components/ui/command";
-import {Layers, Newspaper, Search, Terminal} from "lucide-react";
+import {Layers, Search, Terminal} from "lucide-react";
 
 export function NavigationCommand() {
     const [open, setOpen] = useState(false)
