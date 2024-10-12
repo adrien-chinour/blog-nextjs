@@ -1,4 +1,4 @@
-import withVercelToolbar from "@vercel/toolbar/plugins/next";
+import { withSentryConfig } from "@sentry/nextjs";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -14,4 +14,10 @@ const nextConfig = {
     },
 };
 
-export default (withVercelToolbar())(nextConfig);
+export default withSentryConfig(nextConfig, {
+    org: "webandwell",
+    project: "blog-next",
+    authToken: process.env.SENTRY_AUTH_TOKEN,
+    tunnelRoute: '/_errors'
+});
+
