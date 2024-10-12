@@ -57,19 +57,19 @@ export function NavigationCommand() {
                 <CommandInput placeholder="Tape une commande ou une recherche..."/>
                 <CommandList>
                     <CommandEmpty>Aucun résultat.</CommandEmpty>
-                    {
-                        history.length !== 0 &&
-                        (
-                            <CommandGroup heading="Historique">
-                                {history.map((item) => (
-                                    <CommandItem key={item.href} onSelect={() => goTo(item.href)}>
-                                        <Newspaper size={16} strokeWidth={1} className="mr-2"/>
-                                        <span>{item.title}</span>
-                                    </CommandItem>
-                                ))}
-                            </CommandGroup>
-                        )
-                    }
+                    {/*{*/}
+                    {/*    history.length !== 0 &&*/}
+                    {/*    (*/}
+                    {/*        <CommandGroup heading="Historique">*/}
+                    {/*            {history.map((item) => (*/}
+                    {/*                <CommandItem key={item.href} onSelect={() => goTo(item.href)}>*/}
+                    {/*                    <Newspaper size={16} strokeWidth={1} className="mr-2"/>*/}
+                    {/*                    <span>{item.title}</span>*/}
+                    {/*                </CommandItem>*/}
+                    {/*            ))}*/}
+                    {/*        </CommandGroup>*/}
+                    {/*    )*/}
+                    {/*}*/}
                     <CommandSeparator/>
                     <CommandGroup heading="Navigation">
                         <CommandItem onSelect={() => goTo('/articles')}>
