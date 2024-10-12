@@ -45,11 +45,11 @@ export function NavigationCommand() {
         setOpen(false);
     }
 
-    const {toggleTheme} = useTheme();
-    const switchTheme = () => {
-        toggleTheme();
-        setOpen(false);
-    }
+    // const {toggleTheme} = useTheme();
+    // const switchTheme = () => {
+    //     toggleTheme();
+    //     setOpen(false);
+    // }
 
     return (
         <>
@@ -89,10 +89,10 @@ export function NavigationCommand() {
                         </CommandItem>
                     </CommandGroup>
                     <CommandGroup heading="Paramètres">
-                        <CommandItem onSelect={switchTheme}>
-                            <SunMoon size={16} strokeWidth={1} className="mr-2"/>
-                            <span>Changer le thème</span>
-                        </CommandItem>
+                        {/*<CommandItem onSelect={switchTheme}>*/}
+                        {/*    <SunMoon size={16} strokeWidth={1} className="mr-2"/>*/}
+                        {/*    <span>Changer le thème</span>*/}
+                        {/*</CommandItem>*/}
                         <CommandItem onSelect={clear}>
                             <Trash2 size={16} strokeWidth={1} className="mr-2"/>
                             <span>Vider mon historique</span>

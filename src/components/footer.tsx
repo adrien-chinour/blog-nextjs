@@ -1,5 +1,3 @@
-import ThemeToggle from "@/components/theme-toggle";
-
 export default function Footer() {
     return (
         <footer role="contentinfo"
@@ -20,7 +18,7 @@ export default function Footer() {
                 </li>
             </ul>
             <div className="flex gap-2">
-                <ThemeToggle />
+            {/*    <ThemeToggle />*/}
             </div>
         </footer>
     )
