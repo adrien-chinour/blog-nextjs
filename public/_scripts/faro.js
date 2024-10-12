@@ -7,5 +7,5 @@
             app: {name: "next.udfn.fr", version: "1.0.0", environment: "production"},
         });
     };
-    document.body.appendChild(webSdkScript);
+    document.head.appendChild(webSdkScript);
 })();
