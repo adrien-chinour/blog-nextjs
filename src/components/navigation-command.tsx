@@ -13,9 +13,7 @@ import {
     CommandList,
     CommandSeparator
 } from "@/components/ui/command";
-import {Layers, Newspaper, Search, SunMoon, Terminal, Trash2} from "lucide-react";
-import {useTheme} from "@/contexts/theme-context";
-import {useHistory} from "@/contexts/history-context";
+import {Layers, Newspaper, Search, Terminal} from "lucide-react";
 
 export function NavigationCommand() {
     const [open, setOpen] = useState(false)
@@ -32,12 +30,11 @@ export function NavigationCommand() {
         return () => document.removeEventListener("keydown", down)
     }, [])
 
-    const {history, clearHistory} = useHistory()
-
-    const clear = () => {
-        clearHistory();
-        setOpen(false);
-    }
+    // const {history, clearHistory} = useHistory()
+    // const clear = () => {
+    //     clearHistory();
+    //     setOpen(false);
+    // }
 
     const router = useRouter();
     const goTo = (href: string) => {
@@ -93,10 +90,10 @@ export function NavigationCommand() {
                         {/*    <SunMoon size={16} strokeWidth={1} className="mr-2"/>*/}
                         {/*    <span>Changer le thème</span>*/}
                         {/*</CommandItem>*/}
-                        <CommandItem onSelect={clear}>
-                            <Trash2 size={16} strokeWidth={1} className="mr-2"/>
-                            <span>Vider mon historique</span>
-                        </CommandItem>
+                        {/*<CommandItem onSelect={clear}>*/}
+                        {/*    <Trash2 size={16} strokeWidth={1} className="mr-2"/>*/}
+                        {/*    <span>Vider mon historique</span>*/}
+                        {/*</CommandItem>*/}
                     </CommandGroup>
                 </CommandList>
             </CommandDialog>
