@@ -1,5 +1,3 @@
-import { withSentryConfig } from "@sentry/nextjs";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
@@ -14,10 +12,4 @@ const nextConfig = {
     },
 };
 
-export default withSentryConfig(nextConfig, {
-    org: "webandwell",
-    project: "blog-next",
-    authToken: process.env.SENTRY_AUTH_TOKEN,
-    tunnelRoute: '/_errors'
-});
-
+export default nextConfig;
