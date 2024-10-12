@@ -4,6 +4,8 @@ import {cookies} from "next/headers";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Faro from "@/components/system/faro/faro";
+import {ThemeProvider} from "@/contexts/theme-context";
+import {HistoryProvider} from "@/contexts/history-context";
 import {GoogleTagManager} from '@next/third-parties/google'
 import {SpeedInsights} from "@vercel/speed-insights/next"
 import {Analytics} from "@vercel/analytics/react"
@@ -29,13 +31,17 @@ export default function RootLayout({children}: Readonly<{ children: ReactNode }>
         <html lang="fr" className={theme}>
             <GoogleTagManager gtmId="GTM-PZBJNQCM"/>
             <body className="min-h-screen">
-                <div className={`container mx-auto max-w-7xl min-h-screen flex flex-col`}>
-                    <Header/>
-                    <div role="main" className="flex-grow">
-                        {children}
-                    </div>
-                    <Footer/>
-                </div>
+                <ThemeProvider>
+                    <HistoryProvider>
+                        <div className={`container mx-auto max-w-7xl min-h-screen flex flex-col`}>
+                            <Header/>
+                            <div role="main" className="flex-grow">
+                                {children}
+                            </div>
+                            <Footer/>
+                        </div>
+                    </HistoryProvider>
+                </ThemeProvider>
                 <SpeedInsights/>
                 <Analytics/>
                 <Faro/>

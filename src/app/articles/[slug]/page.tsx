@@ -6,6 +6,7 @@ import {notFound} from "next/navigation";
 
 import "@/stylesheets/content.css";
 import "@/stylesheets/highlight.css";
+import HistoryLogger from "@/components/history-logger";
 
 type Props = {
     params: { slug: string }
@@ -41,6 +42,7 @@ export default async function Page({params}: Props) {
             <hr/>
             <ArticleLayout article={article}/>
             <BlogPostingSchema article={article}/>
+            <HistoryLogger title={article.title} href={`/articles/${params.slug}`} />
         </main>
     )
 }

@@ -13,7 +13,9 @@ import {
     CommandList,
     CommandSeparator
 } from "@/components/ui/command";
-import {Layers, Search, Terminal} from "lucide-react";
+import {Layers, Newspaper, Search, SunMoon, Terminal, Trash2} from "lucide-react";
+import {useTheme} from "@/contexts/theme-context";
+import {useHistory} from "@/contexts/history-context";
 
 export function NavigationCommand() {
     const [open, setOpen] = useState(false)
@@ -30,11 +32,12 @@ export function NavigationCommand() {
         return () => document.removeEventListener("keydown", down)
     }, [])
 
-    // const {history, clearHistory} = useHistory()
-    // const clear = () => {
-    //     clearHistory();
-    //     setOpen(false);
-    // }
+    const {history, clearHistory} = useHistory()
+
+    const clear = () => {
+        clearHistory();
+        setOpen(false);
+    }
 
     const router = useRouter();
     const goTo = (href: string) => {
@@ -42,11 +45,11 @@ export function NavigationCommand() {
         setOpen(false);
     }
 
-    // const {toggleTheme} = useTheme();
-    // const switchTheme = () => {
-    //     toggleTheme();
-    //     setOpen(false);
-    // }
+    const {toggleTheme} = useTheme();
+    const switchTheme = () => {
+        toggleTheme();
+        setOpen(false);
+    }
 
     return (
         <>
@@ -57,19 +60,19 @@ export function NavigationCommand() {
                 <CommandInput placeholder="Tape une commande ou une recherche..."/>
                 <CommandList>
                     <CommandEmpty>Aucun résultat.</CommandEmpty>
-                    {/*{*/}
-                    {/*    history.length !== 0 &&*/}
-                    {/*    (*/}
-                    {/*        <CommandGroup heading="Historique">*/}
-                    {/*            {history.map((item) => (*/}
-                    {/*                <CommandItem key={item.href} onSelect={() => goTo(item.href)}>*/}
-                    {/*                    <Newspaper size={16} strokeWidth={1} className="mr-2"/>*/}
-                    {/*                    <span>{item.title}</span>*/}
-                    {/*                </CommandItem>*/}
-                    {/*            ))}*/}
-                    {/*        </CommandGroup>*/}
-                    {/*    )*/}
-                    {/*}*/}
+                    {
+                        history.length !== 0 &&
+                        (
+                            <CommandGroup heading="Historique">
+                                {history.map((item) => (
+                                    <CommandItem key={item.href} onSelect={() => goTo(item.href)}>
+                                        <Newspaper size={16} strokeWidth={1} className="mr-2"/>
+                                        <span>{item.title}</span>
+                                    </CommandItem>
+                                ))}
+                            </CommandGroup>
+                        )
+                    }
                     <CommandSeparator/>
                     <CommandGroup heading="Navigation">
                         <CommandItem onSelect={() => goTo('/articles')}>
@@ -86,14 +89,14 @@ export function NavigationCommand() {
                         </CommandItem>
                     </CommandGroup>
                     <CommandGroup heading="Paramètres">
-                        {/*<CommandItem onSelect={switchTheme}>*/}
-                        {/*    <SunMoon size={16} strokeWidth={1} className="mr-2"/>*/}
-                        {/*    <span>Changer le thème</span>*/}
-                        {/*</CommandItem>*/}
-                        {/*<CommandItem onSelect={clear}>*/}
-                        {/*    <Trash2 size={16} strokeWidth={1} className="mr-2"/>*/}
-                        {/*    <span>Vider mon historique</span>*/}
-                        {/*</CommandItem>*/}
+                        <CommandItem onSelect={switchTheme}>
+                            <SunMoon size={16} strokeWidth={1} className="mr-2"/>
+                            <span>Changer le thème</span>
+                        </CommandItem>
+                        <CommandItem onSelect={clear}>
+                            <Trash2 size={16} strokeWidth={1} className="mr-2"/>
+                            <span>Vider mon historique</span>
+                        </CommandItem>
                     </CommandGroup>
                 </CommandList>
             </CommandDialog>
