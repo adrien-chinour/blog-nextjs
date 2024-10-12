@@ -8,6 +8,7 @@ import {HistoryProvider} from "@/contexts/history-context";
 import {GoogleTagManager} from '@next/third-parties/google'
 
 import "@/app/globals.css";
+import Script from "next/script";
 
 export const metadata: Metadata = {
     title: "Undefined Blog",
@@ -39,6 +40,7 @@ export default function RootLayout({children}: Readonly<{ children: ReactNode }>
                         </div>
                     </HistoryProvider>
                 </ThemeProvider>
+                <Script src="/_scripts/faro.js" strategy="lazyOnload" />
             </body>
         </html>
     );
