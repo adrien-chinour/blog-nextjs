@@ -9,6 +9,7 @@ import {GoogleTagManager} from '@next/third-parties/google'
 
 import "@/app/globals.css";
 import Script from "next/script";
+import Head from "next/head";
 
 export const metadata: Metadata = {
     title: "Undefined Blog",
@@ -41,6 +42,7 @@ export default function RootLayout({children}: Readonly<{ children: ReactNode }>
                     </HistoryProvider>
                 </ThemeProvider>
                 <Script src="/_scripts/faro.js" strategy="lazyOnload" />
+                <Script src="https://cloud.umami.is/script.js" defer strategy="lazyOnload" data-website-id="c9dc8a8a-8633-40bb-9cc6-652b36aa87da" />
             </body>
         </html>
     );
