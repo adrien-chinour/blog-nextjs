@@ -9,7 +9,6 @@ import {GoogleTagManager} from '@next/third-parties/google'
 
 import "@/app/globals.css";
 import Script from "next/script";
-import Head from "next/head";
 
 export const metadata: Metadata = {
     title: "Undefined Blog",
