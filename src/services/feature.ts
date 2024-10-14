@@ -2,7 +2,13 @@
 
 import {z} from "zod";
 
-export type FeatureName = 'aside_comments' | 'aside_recommendations' | 'allow_comments';
+export type FeatureName =
+    'aside_comments'
+    | 'aside_recommendations'
+    | 'allow_comments'
+    | 'script_faro'
+    | 'script_umami'
+    ;
 
 export default async function feature(name: FeatureName, fallback: boolean = false): Promise<boolean> {
     return (await features()).find((feat) => feat.name === name)?.enable ?? fallback;

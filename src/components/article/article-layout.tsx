@@ -9,9 +9,9 @@ import feature from "@/services/feature";
 
 export default async function ArticleLayout({article}: { article: Article }) {
     const [enableComments, enableRecommendation, allowPostComment] = await Promise.all([
-        feature("aside_comments", false),
-        feature("aside_recommendations", false),
-        feature("allow_comments", false)
+        feature("aside_comments"),
+        feature("aside_recommendations"),
+        feature("allow_comments")
     ]);
 
     return (
