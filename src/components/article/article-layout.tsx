@@ -5,8 +5,15 @@ import {Article} from "@/types/types";
 import ArticleRecommendations from "@/components/article/article-recommendations";
 import {Suspense} from "react";
 import ArticleComments from "@/components/article/article-comments";
+import feature from "@/services/feature";
 
-export default function ArticleLayout({article}: { article: Article }) {
+export default async function ArticleLayout({article}: { article: Article }) {
+    const [enableComments, enableRecommendation, allowPostComment] = await Promise.all([
+        feature("aside_comments", false),
+        feature("aside_recommendations", false),
+        feature("allow_comments", false)
+    ]);
+
     return (
         <article>
             <ArticleHeader article={article}/>
@@ -16,16 +23,22 @@ export default function ArticleLayout({article}: { article: Article }) {
                 <aside id="aside-tags">
                     <ArticleTags tags={article.tags}/>
                 </aside>
-                <aside id="aside-recommendations">
-                    <Suspense>
-                        <ArticleRecommendations articleId={article.id}/>
-                    </Suspense>
-                </aside>
-                <aside id="aside-comments">
-                    <Suspense>
-                        <ArticleComments articleId={article.id}/>
-                    </Suspense>
-                </aside>
+                {
+                    enableRecommendation &&
+                    <aside id="aside-recommendations">
+                        <Suspense>
+                            <ArticleRecommendations articleId={article.id}/>
+                        </Suspense>
+                    </aside>
+                }
+                {
+                    enableComments &&
+                    <aside id="aside-comments">
+                        <Suspense>
+                            <ArticleComments articleId={article.id} allowPostComment={allowPostComment}/>
+                        </Suspense>
+                    </aside>
+                }
             </div>
         </article>
     )

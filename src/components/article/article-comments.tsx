@@ -1,7 +1,10 @@
 import {getArticleComments} from "@/services/api";
 import LocalizedTime from "@/components/localized-time";
 
-export default async function ArticleComments({articleId}: Readonly<{ articleId: string }>) {
+export default async function ArticleComments({articleId, allowPostComment}: Readonly<{
+    articleId: string,
+    allowPostComment: boolean
+}>) {
     const comments = (await getArticleComments(articleId)).map((comment) => {
         return (
             <li key={comment.id} className="my-4 p-4 rounded border border-zinc-400">
@@ -17,13 +20,32 @@ export default async function ArticleComments({articleId}: Readonly<{ articleId:
 
     return (
         <>
+            <p className="text-xl font-bold mb-1">Commentaires ({comments.length})</p>
             {
-            comments.length > 0 &&
-            <>
-                <p className="text-xl font-bold mb-1">Commentaires ({comments.length})</p>
+                allowPostComment &&
+                <form>
+                    <textarea
+                        className="mt-4 p-2 w-full rounded dark:bg-zinc-700 bg-zinc-100 border"
+                        rows={5}
+                        placeholder="Participe à la discussion 💬">
+                    </textarea>
+                    <div className="mt-2 mb-4 flex gap-2">
+                        <input
+                            type="text"
+                            placeholder="Pseudonyme 👻"
+                            className="p-2 rounded dark:bg-zinc-700 bg-zinc-100 min-w-0 border"
+                        />
+                        <button
+                            className="rounded bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-50 p-2 text-white font-bold ms-auto">
+                            Partager
+                        </button>
+                    </div>
+                </form>
+            }
+            {
+                comments.length > 0 &&
                 <ul className="mt-4">{comments}</ul>
-            </>
-        }
+            }
         </>
     )
 }
