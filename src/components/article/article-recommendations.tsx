@@ -22,7 +22,7 @@ export default async function ArticleRecommendations({articleId}: { articleId: s
 
     return (
         <>
-            <p className="text-lg font-bold mb-1">À lire aussi</p>
+            <p className="text-xl font-bold mb-1">À lire aussi</p>
             <ul>{recommendations}</ul>
         </>
 
