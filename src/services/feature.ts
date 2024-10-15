@@ -27,7 +27,6 @@ async function features(): Promise<Feature[]> {
     }
 
     const parsed = z.array(FeatureModel).safeParse(await response.json())
-    console.log("features :", parsed)
 
     return parsed.success ? parsed.data : [];
 }
