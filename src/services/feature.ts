@@ -8,6 +8,8 @@ export type FeatureName =
     | 'allow_comments'
     | 'script_faro'
     | 'script_umami'
+    | 'transition_image'
+    | 'transition_title'
     ;
 
 export default async function feature(name: FeatureName, fallback: boolean = false): Promise<boolean> {

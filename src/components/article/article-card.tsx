@@ -41,13 +41,13 @@ function ArticleCardInline({article, asyncImage}: { article: Article, asyncImage
         <section className="mb-6">
             <a href={`/articles/${article.slug}`} className="group sm:flex">
                 <Image
-                    style={{viewTransitionName: `article-image-${article.id}`}}
                     className="rounded aspect-video sm:min-w-64 max-w-64"
                     src={article.imageUrl}
                     alt={article.title}
                     width="600"
                     height="377"
                     priority={asyncImage !== undefined && !asyncImage}
+                    style={{viewTransitionName: `article-image-${article.id}`}}
                 />
                 <div className="p-2">
                     <ArticlePublicationDate publicationDate={article.publicationDate}/>
