@@ -22,10 +22,10 @@
     }
 
     a {
-        @apply underline text-sky-500;
+        @apply underline text-sky-700 dark:text-sky-400;
 
         &:hover {
-            @apply text-sky-400;
+            @apply dark:text-sky-500 text-sky-600;
         }
     }
 

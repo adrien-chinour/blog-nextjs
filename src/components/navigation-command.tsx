@@ -53,9 +53,9 @@ export function NavigationCommand() {
 
     return (
         <>
-            <button className="inline" onClick={() => setOpen(true)} title="Menu commande (Ctrl+J / ⌘+J)">
-                <Terminal size={20}/>
-            </button>
+            <a onClick={() => setOpen(true)} title="Menu commande (Ctrl+J / ⌘+J)">
+                <Terminal size={20} strokeWidth={3}/>
+            </a>
             <CommandDialog open={open} onOpenChange={setOpen}>
                 <CommandInput placeholder="Tape une commande ou une recherche..."/>
                 <CommandList>
