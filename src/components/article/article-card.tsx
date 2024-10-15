@@ -1,7 +1,6 @@
 import {Article} from "@/types/types";
 import Image from "next/image";
 import LocalizedTime from "@/components/localized-time";
-import Link from "next/link";
 
 export default function ArticleCard({article, variant, asyncImage}: {
     article: Article,
@@ -19,7 +18,7 @@ export default function ArticleCard({article, variant, asyncImage}: {
 function ArticleCardDefault({article, asyncImage}: { article: Article, asyncImage?: boolean }) {
     return (
         <section className="mb-6 md:mb-0 md:flex-1 max-w-max">
-            <Link href={`/articles/${article.slug}`} className="group">
+            <a href={`/articles/${article.slug}`} className="group">
                 <Image
                     className="rounded mb-2 aspect-video"
                     src={article.imageUrl} alt={article.title}
@@ -29,10 +28,10 @@ function ArticleCardDefault({article, asyncImage}: { article: Article, asyncImag
                 />
                 <div className="px-2 md:px-0">
                     <ArticlePublicationDate publicationDate={article.publicationDate}/>
-                    <ArticleTitle title={article.title}/>
+                    <ArticleTitle title={article.title} />
                     <ArticleDescription description={article.description}/>
                 </div>
-            </Link>
+            </a>
         </section>
     )
 }
@@ -40,9 +39,10 @@ function ArticleCardDefault({article, asyncImage}: { article: Article, asyncImag
 function ArticleCardInline({article, asyncImage}: { article: Article, asyncImage?: boolean }) {
     return (
         <section className="mb-6">
-            <Link href={`/articles/${article.slug}`} className="group sm:flex">
+            <a href={`/articles/${article.slug}`} className="group sm:flex">
                 <Image
-                    className="rounded aspect-video sm:w-64"
+                    style={{viewTransitionName: `article-image-${article.id}`}}
+                    className="rounded aspect-video sm:min-w-64 max-w-64"
                     src={article.imageUrl}
                     alt={article.title}
                     width="600"
@@ -51,17 +51,19 @@ function ArticleCardInline({article, asyncImage}: { article: Article, asyncImage
                 />
                 <div className="p-2">
                     <ArticlePublicationDate publicationDate={article.publicationDate}/>
-                    <ArticleTitle title={article.title}/>
+                    <ArticleTitle title={article.title} id={article.id}/>
                     <ArticleDescription description={article.description}/>
                 </div>
-            </Link>
+            </a>
         </section>
     )
 }
 
-function ArticleTitle({title}: { title: string }) {
+function ArticleTitle({title, id = null}: { title: string, id?: string | null }) {
+    const style = id !== null ? {viewTransitionName: `article-title-${id}`} : {}
+
     return (
-        <p className="text-xl title my-1 group-hover:underline">{title}</p>
+        <p className="text-xl title my-1 group-hover:underline" style={style}>{title}</p>
     )
 }
 
