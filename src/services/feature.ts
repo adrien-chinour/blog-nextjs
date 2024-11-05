@@ -17,7 +17,7 @@ export default async function feature(name: FeatureName, fallback: boolean = fal
 }
 
 async function features(): Promise<Feature[]> {
-    const response = await fetch(`${process.env.BLOG_API}/api/features`, {
+    const response = await fetch(`${process.env.BLOG_API}/features`, {
         next: {revalidate: 60},
         headers: {'Content-Type': 'application/json'}
     });
