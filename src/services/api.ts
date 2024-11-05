@@ -5,15 +5,15 @@ import * as T from "@/types/types";
 import {Article, ArticleCollection, CommentCollection, ProjectCollection} from "@/types/zod";
 
 export const getArticles = async function (limit: number = 20): Promise<T.Article[]> {
-    return parse(await api(`/articles?limit=${limit}`, 3600), ArticleCollection, []);
+    return parse(await api(`/articles?limit=${limit}`), ArticleCollection, []);
 }
 
 export const getArticle = async function (slug: string): Promise<T.Article | null> {
-    return parse(await api(`/articles/${slug}`, 3600), Article);
+    return parse(await api(`/articles/${slug}`), Article);
 }
 
 export const getArticleRecommendations = async function (id: string): Promise<T.Article[]> {
-    return parse(await api(`/articles/${id}/recommendations`, 600), ArticleCollection, []);
+    return parse(await api(`/articles/${id}/recommendations`), ArticleCollection, []);
 }
 
 export const getArticleComments = async function (id: string): Promise<T.Comment[]> {
@@ -21,14 +21,14 @@ export const getArticleComments = async function (id: string): Promise<T.Comment
 }
 
 export const searchArticle = async function (term: string): Promise<T.Article[]> {
-    return parse(await api(`/search/articles?query=${term}`, 3600), ArticleCollection, []);
+    return parse(await api(`/search/articles?query=${term}`), ArticleCollection, []);
 }
 
 export const getProjects = async function (limit: number = 10): Promise<T.Project[]> {
-    return parse(await api(`/projects?limit=${limit}`, 3600), ProjectCollection, []);
+    return parse(await api(`/projects?limit=${limit}`), ProjectCollection, []);
 }
 
-const api = async function (path: string, ttl: number = 3600): Promise<any> {
+const api = async function (path: string, ttl: number = 60): Promise<any> {
     const response = await fetch(`${process.env.BLOG_API}${path}`, {
         next: {revalidate: ttl},
         headers: {'Content-Type': 'application/json'}
