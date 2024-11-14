@@ -41,7 +41,7 @@ function ArticleCardInline({article, asyncImage}: { article: Article, asyncImage
         <section className="mb-6">
             <a href={`/articles/${article.slug}`} className="group sm:flex">
                 <Image
-                    className="rounded aspect-video sm:min-w-64 max-w-64"
+                    className="rounded aspect-video sm:min-w-64 sm:max-w-64"
                     src={article.imageUrl}
                     alt={article.title}
                     width="600"
