@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/command";
 import {Layers, Newspaper, Search, SunMoon, Terminal, Trash2} from "lucide-react";
 import {useTheme} from "@/contexts/theme-context";
-import {useHistory} from "@/contexts/history-context";
+import useHistoryStore from "@/stores/history-store";
 
 export function NavigationCommand() {
     const [open, setOpen] = useState(false)
@@ -32,7 +32,9 @@ export function NavigationCommand() {
         return () => document.removeEventListener("keydown", down)
     }, [])
 
-    const {history, clearHistory} = useHistory()
+
+    const history = useHistoryStore((state) => state.history);
+    const clearHistory = useHistoryStore((state) => state.clearHistory);
 
     const clear = () => {
         clearHistory();
