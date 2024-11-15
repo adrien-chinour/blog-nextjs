@@ -8,6 +8,7 @@ export type FeatureName =
     | 'allow_comments'
     | 'script_faro'
     | 'script_umami'
+    | 'script_posthog'
     | 'transition_image'
     | 'transition_title'
     ;
