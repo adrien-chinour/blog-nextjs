@@ -9,7 +9,7 @@ type HistoryItem = {
 
 interface HistoryStore {
     history: HistoryItem[];
-    addItem: (item: HistoryItem) => void;
+    addItem: (_item: HistoryItem) => void;
     clearHistory: () => void;
 }
 
