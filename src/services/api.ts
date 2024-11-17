@@ -12,6 +12,10 @@ export const getArticle = async function (slug: string): Promise<T.Article | nul
     return parse(await api(`/articles/${slug}`), Article);
 }
 
+export const getArticleById = async function (id: string, preview: boolean = false): Promise<T.Article | null> {
+    return parse(await api(`/articles/${id}?published=${!preview}`), Article);
+}
+
 export const getArticleRecommendations = async function (id: string): Promise<T.Article[]> {
     return parse(await api(`/articles/${id}/recommendations`), ArticleCollection, []);
 }
