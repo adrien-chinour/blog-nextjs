@@ -6,19 +6,19 @@
     }
 
     h2 {
-        @apply text-3xl mt-3 mb-2;
+        @apply text-3xl mt-6 mb-2;
     }
 
     h3 {
-        @apply text-2xl mt-2 mb-1;
+        @apply text-2xl mt-5 mb-1;
     }
 
     h4 {
-        @apply text-xl mt-1 mb-0.5;
+        @apply text-xl mt-3 mb-0.5;
     }
 
     h5, h6 {
-        @apply text-lg mt-1 mb-0.5;
+        @apply text-lg mt-2 mb-0.5;
     }
 
     a {
@@ -42,11 +42,11 @@
     }
 
     li {
-        @apply my-1 mx-3;
+        @apply my-1 mx-6;
     }
 
     blockquote {
-        @apply bg-zinc-100 dark:bg-zinc-700 rounded p-2 border-l-4 dark:border-zinc-200 border-zinc-800;
+        @apply bg-yellow-100 dark:bg-yellow-600 dark:bg-opacity-20 rounded p-2 border-l-4 dark:border-yellow-900 border-yellow-800;
     }
 
     code {
