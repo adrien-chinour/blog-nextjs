@@ -55,9 +55,5 @@
 
     pre {
         @apply border border-zinc-600 bg-zinc-900 text-zinc-200 rounded-sm my-4 p-1 overflow-scroll;
-
-        &::-webkit-scrollbar {
-            display: none;
-        }
     }
 }
