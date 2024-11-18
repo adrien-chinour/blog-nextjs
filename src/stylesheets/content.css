@@ -57,3 +57,9 @@
         @apply border border-zinc-600 bg-zinc-900 text-zinc-200 rounded-sm my-4 p-1 overflow-scroll;
     }
 }
+
+.article-image-description {
+    a {
+        @apply underline hover:text-blue-700 dark:hover:text-blue-300
+    }
+}

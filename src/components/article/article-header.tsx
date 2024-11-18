@@ -31,6 +31,12 @@ export default async function ArticleHeader({article}: { article: Article }) {
                 priority
                 style={enableImageTransition ? {viewTransitionName: `article-image-${article.id}`} : {}}
             />
+            {
+                article.imageDescription &&
+                <p className="article-image-description text-center text-muted text-sm"
+                   dangerouslySetInnerHTML={{__html: article.imageDescription}}
+                />
+            }
         </header>
     )
 }

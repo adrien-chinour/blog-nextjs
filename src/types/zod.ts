@@ -23,6 +23,7 @@ export const Article = z.object({
     description: z.string(),
     content: z.string(),
     imageUrl: z.string(),
+    imageDescription: z.string().optional(),
     slug: z.string(),
     publicationDate: z.string().datetime({offset: true}).pipe(z.coerce.date()),
     tags: TagCollection,
