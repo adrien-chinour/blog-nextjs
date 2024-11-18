@@ -8,10 +8,6 @@ const config: Config = {
   ],
   theme: {
   	extend: {
-  		fontFamily: {
-  			serif: ['serif'],
-  			mono: ['monospace']
-  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
