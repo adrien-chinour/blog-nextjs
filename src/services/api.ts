@@ -42,5 +42,12 @@ const api = async function (path: string, ttl: number = 60): Promise<any> {
 
 const parse = function <T extends ZodType>(data: unknown, type: T, fallback: any = null): z.infer<T> | typeof fallback {
     const parse = type.safeParse(data);
-    return parse.success ? parse.data : fallback;
+
+    if (!parse.success) {
+        console.error(parse.error)
+
+        return fallback
+    }
+
+    return parse.data
 }
