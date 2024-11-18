@@ -10,7 +10,7 @@ const config: Config = {
   	extend: {
   		fontFamily: {
   			serif: ['serif'],
-  			mono: ['mono']
+  			mono: ['monospace']
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
