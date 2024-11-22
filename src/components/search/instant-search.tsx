@@ -6,9 +6,11 @@ import {Article} from "@/types/types";
 import {searchArticles} from "@/actions/search";
 import ArticleCard from "@/components/article/article-card";
 import {useDebouncedCallback} from "use-debounce";
+import {Loader} from "lucide-react";
 
 export default function InstantSearch() {
     const [results, setResults] = useState<Article[] | undefined>(undefined)
+    const [loading, setLoading] = useState<boolean>(false);
 
     const handleSearch = useDebouncedCallback(async (e: FormEvent) => {
         e.preventDefault();
@@ -18,13 +20,20 @@ export default function InstantSearch() {
             return;
         }
 
+        setLoading(true)
         const articles = await searchArticles(e.target.value);
         setResults(articles)
+        setLoading(false)
     }, 400);
 
     return (
         <div>
             <Input type="search" onInput={handleSearch} placeholder="Rechercher..." autoFocus={true}/>
+            {
+                loading && <p className="text-center mt-8 text-muted">
+                    <Loader className="animate-spin inline-block"/> Recherche en cours...
+                </p>
+            }
             {
                 results !== undefined &&
                 <>
