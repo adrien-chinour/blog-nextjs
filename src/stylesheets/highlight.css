@@ -23,7 +23,7 @@
 }
 
 .hl-variable {
-    @apply text-neutral-50;
+    @apply text-red-400;
 }
 
 .hl-comment span,

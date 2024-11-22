@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default async function ArticleRecommendations({articleId}: { articleId: string }) {
     const recommendations = (await getArticleRecommendations(articleId)).map((article: Article) => (
-        <li key={article.id} className="rounded bg-zinc-100 dark:bg-zinc-900 border-zinc-400 border mb-2">
+        <li key={article.id} className="rounded bg-slate-100 dark:bg-slate-900 border-slate-400 border mb-2">
             <a className="group sm:flex analytics-suggestions" href={`/articles/${article.slug}`}>
                 <Image
                     width="400" height="225" loading="lazy"

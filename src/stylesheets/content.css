@@ -30,7 +30,7 @@
     }
 
     p {
-        @apply my-2 text-zinc-800 dark:text-zinc-200 leading-7;
+        @apply my-2 text-slate-800 dark:text-slate-200 leading-7;
     }
 
     ul {
