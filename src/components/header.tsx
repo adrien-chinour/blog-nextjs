@@ -1,4 +1,5 @@
 import React from "react";
+import {Search} from "lucide-react";
 
 export default function Header() {
     return (
@@ -10,6 +11,9 @@ export default function Header() {
                 <ul className="flex justify-center gap-4 font-medium">
                     <li><a className="hover:underline" href="/articles">Articles</a></li>
                     <li><a className="hover:underline" href="/projets">Projets</a></li>
+                    <li className="content-baseline">
+                        <a className="hover:underline" href="/recherche"><Search /></a>
+                    </li>
                 </ul>
             </nav>
         </header>
