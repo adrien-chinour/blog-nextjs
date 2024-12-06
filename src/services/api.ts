@@ -2,7 +2,7 @@
 
 import {z, ZodType} from "zod";
 import * as T from "@/types/types";
-import {Article, ArticleCollection, CommentCollection, ProjectCollection} from "@/types/zod";
+import {Article, ArticleCollection, CommentCollection, Page, ProjectCollection} from "@/types/zod";
 
 export const getArticles = async function (limit: number = 20): Promise<T.Article[]> {
     return parse(await api(`/articles?limit=${limit}`), ArticleCollection, []);
@@ -30,6 +30,10 @@ export const searchArticle = async function (term: string): Promise<T.Article[]>
 
 export const getProjects = async function (limit: number = 10): Promise<T.Project[]> {
     return parse(await api(`/projects?limit=${limit}`), ProjectCollection, []);
+}
+
+export const getPage = async function (url: string): Promise<T.Page | null> {
+    return parse(await api(`/pages?path=${url}`), Page, null)
 }
 
 const api = async function (path: string, ttl: number = 60): Promise<any> {

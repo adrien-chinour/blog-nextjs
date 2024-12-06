@@ -40,3 +40,9 @@ export const Comment = z.object({
 })
 
 export const CommentCollection = z.array(Comment)
+
+export const Page = z.object({
+    title: z.string(),
+    path: z.string(),
+    content: z.string(),
+})
