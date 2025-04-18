@@ -63,6 +63,7 @@ export default async function RootLayout({children}: Readonly<{ children: ReactN
                         }}
                     />
                 }
+                <Script src="/_scripts/events.js" strategy="lazyOnload"/>
             </body>
         </html>
     );
