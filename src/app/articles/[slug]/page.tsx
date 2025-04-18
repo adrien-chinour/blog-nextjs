@@ -9,11 +9,12 @@ import "@/stylesheets/highlight.css";
 import HistoryLogger from "@/components/history-logger";
 
 type Props = {
-    params: { slug: string }
+    params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({params}: Props): Promise<Metadata> {
-    const article = await getArticle(params.slug)
+    const slug = (await params).slug;
+    const article = await getArticle(slug)
 
     if (article === null) {
         return {}
@@ -25,13 +26,14 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
         openGraph: {
             images: [article.imageUrl],
             siteName: 'udfn.fr',
-            url: `/articles/${params.slug}`,
+            url: `/articles/${slug}`,
         },
     }
 }
 
 export default async function Page({params}: Props) {
-    const article = await getArticle(params.slug)
+    const slug = (await params).slug;
+    const article = await getArticle(slug)
 
     if (article === null) {
         notFound();
@@ -42,7 +44,7 @@ export default async function Page({params}: Props) {
             <hr/>
             <ArticleLayout article={article}/>
             <BlogPostingSchema article={article}/>
-            <HistoryLogger title={article.title} href={`/articles/${params.slug}`} />
+            <HistoryLogger title={article.title} href={`/articles/${slug}`} />
         </main>
     )
 }

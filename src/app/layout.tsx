@@ -21,7 +21,7 @@ export const viewport: Viewport = {
 }
 
 export default async function RootLayout({children}: Readonly<{ children: ReactNode }>) {
-    const theme = cookies().get('theme')?.value || 'light';
+    const theme = (await cookies()).get('theme')?.value || 'light';
     const [enableFaro, enableUmami, enablePosthog] = await Promise.all([
         feature('script_faro'),
         feature('script_umami'),
@@ -42,11 +42,11 @@ export default async function RootLayout({children}: Readonly<{ children: ReactN
                     </div>
                 </ThemeProvider>
                 {
-                    enableFaro &&
+                    enableFaro && process.env.NODE_ENV === 'production' &&
                     <Script src="/_scripts/faro.js" strategy="lazyOnload"/>
                 }
                 {
-                    enableUmami &&
+                    enableUmami && process.env.NODE_ENV === 'production' &&
                     <Script
                         src="https://cloud.umami.is/script.js"
                         defer
@@ -55,7 +55,7 @@ export default async function RootLayout({children}: Readonly<{ children: ReactN
                     />
                 }
                 {
-                    enablePosthog &&
+                    enablePosthog && process.env.NODE_ENV === 'production' &&
                     <Script
                         id="posthog"
                         dangerouslySetInnerHTML={{

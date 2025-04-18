@@ -6,11 +6,11 @@ import "@/stylesheets/content.css";
 import "@/stylesheets/highlight.css";
 
 type Props = {
-    params: { id: string }
+    params: Promise<{ id: string }>
 }
 
 export default async function Page({params}: Props) {
-    const article = await getArticleById(params.id, true)
+    const article = await getArticleById((await params).id, true)
 
     if (article === null) {
         notFound();
