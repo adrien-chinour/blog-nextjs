@@ -15,7 +15,7 @@ export default async function ArticleRecommendations({articleId}: { articleId: s
                 />
                 <div className="p-2">
                     <p className="font-serif text-lg group-hover:underline">{article.title}</p>
-                    <p className="text-sm line-clamp-1 overflow-ellipsis">{article.description}</p>
+                    <p className="text-sm line-clamp-1 text-ellipsis">{article.description}</p>
                 </div>
             </Link>
         </li>

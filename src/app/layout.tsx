@@ -33,7 +33,7 @@ export default async function RootLayout({children}: Readonly<{ children: ReactN
             <body className="min-h-screen">
                 <div className={`container mx-auto max-w-7xl min-h-screen flex flex-col`}>
                     <Header/>
-                    <div role="main" className="flex-grow">
+                    <div role="main" className="grow">
                         {children}
                     </div>
                     <Footer/>
