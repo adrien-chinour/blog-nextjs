@@ -15,7 +15,7 @@ export default function AskOpenai({children}: Readonly<{ children: ReactNode }>)
 
         if (selection.toString().length > 100) {
             setSelection(null)
-            console.error("Selection is too long cannot used it for explain feature.")
+            console.warn("Selection is too long cannot used it for explain feature.")
             return;
         }
 
