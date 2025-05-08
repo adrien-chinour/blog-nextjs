@@ -4,7 +4,6 @@ import {cookies} from "next/headers";
 import Script from "next/script";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import {ThemeProvider} from "@/contexts/theme-context";
 import feature from "@/services/feature";
 import {GoogleTagManager} from '@next/third-parties/google'
 
@@ -32,15 +31,13 @@ export default async function RootLayout({children}: Readonly<{ children: ReactN
         <html lang="fr" className={theme}>
             <GoogleTagManager gtmId="GTM-PZBJNQCM"/>
             <body className="min-h-screen">
-                <ThemeProvider>
-                    <div className={`container mx-auto max-w-7xl min-h-screen flex flex-col`}>
-                        <Header/>
-                        <div role="main" className="flex-grow">
-                            {children}
-                        </div>
-                        <Footer/>
+                <div className={`container mx-auto max-w-7xl min-h-screen flex flex-col`}>
+                    <Header/>
+                    <div role="main" className="flex-grow">
+                        {children}
                     </div>
-                </ThemeProvider>
+                    <Footer/>
+                </div>
                 {
                     enableFaro && process.env.NODE_ENV === 'production' &&
                     <Script src="/_scripts/faro.js" strategy="lazyOnload"/>

@@ -1,5 +1,3 @@
-import ThemeToggle from "@/components/theme-toggle";
-import {NavigationCommand} from "@/components/navigation-command";
 import React from "react";
 
 export default function Footer() {
@@ -21,10 +19,6 @@ export default function Footer() {
                     </a>
                 </li>
             </ul>
-            <div className="flex gap-2">
-                <ThemeToggle />
-                <NavigationCommand/>
-            </div>
         </footer>
     )
 }
