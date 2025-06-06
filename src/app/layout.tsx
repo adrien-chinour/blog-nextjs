@@ -5,7 +5,6 @@ import Script from "next/script";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import feature from "@/services/feature";
-import {GoogleTagManager} from '@next/third-parties/google'
 
 import "@/app/globals.css";
 
@@ -29,7 +28,6 @@ export default async function RootLayout({children}: Readonly<{ children: ReactN
 
     return (
         <html lang="fr" className={theme}>
-            <GoogleTagManager gtmId="GTM-PZBJNQCM"/>
             <body className="min-h-screen">
                 <div className={`container mx-auto max-w-7xl min-h-screen flex flex-col`}>
                     <Header/>
