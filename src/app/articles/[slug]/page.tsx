@@ -40,7 +40,6 @@ export default async function Page({params}: Props) {
 
     return (
         <main className="px-4">
-            <hr/>
             <ArticleLayout article={article}/>
             <BlogPostingSchema article={article}/>
         </main>

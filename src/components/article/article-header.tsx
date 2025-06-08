@@ -15,7 +15,7 @@ export default async function ArticleHeader({article}: { article: Article }) {
                 <p className="uppercase text-muted text-xs font-bold">
                     Publié le <LocalizedTime dateTime={article.publicationDate}/>
                 </p>
-                <h1 className="title text-3xl md:text-4xl xl:text-5xl mb-2 mt-3"
+                <h1 className="title text-3xl md:text-4xl xl:text-5xl mb-2 mt-1"
                     style={enableTitleTransition ? {viewTransitionName: `article-title-${article.id}`} : {}}>
                     {article.title}
                 </h1>
