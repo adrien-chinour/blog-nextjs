@@ -7,5 +7,7 @@
             app: {name: "udfn.fr", version: "1.0.0", environment: "production"},
         });
     };
+    webSdkScript.async = true;
+    webSdkScript.fetchpriority = "low"
     document.head.appendChild(webSdkScript);
 })();
