@@ -8,6 +8,7 @@
         });
     };
     webSdkScript.async = true;
-    webSdkScript.fetchpriority = "low"
-    document.head.appendChild(webSdkScript);
+    webSdkScript.fetchpriority = "low";
+
+    document.body.appendChild(webSdkScript);
 })();
