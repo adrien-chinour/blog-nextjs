@@ -43,7 +43,7 @@ export default async function RootLayout({children}: Readonly<{ children: ReactN
                 {
                     enableUmami && process.env.NODE_ENV === 'production' &&
                     <Script
-                        src="https://cloud.umami.is/script.js"
+                        src="/_scripts/umami-sdk.js"
                         defer
                         strategy="lazyOnload"
                         data-website-id="c9dc8a8a-8633-40bb-9cc6-652b36aa87da"

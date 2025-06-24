@@ -7,7 +7,7 @@ const faroInitialization = () => {
 
 requestIdleCallback(() => {
     const webSdkScript = document.createElement("script");
-    webSdkScript.src = "https://unpkg.com/@grafana/faro-web-sdk@1.18.2/dist/bundle/faro-web-sdk.iife.js";
+    webSdkScript.src = "/_scripts/faro-sdk.js";
     webSdkScript.onload = faroInitialization;
     webSdkScript.async = true;
 

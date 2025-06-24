@@ -42,6 +42,19 @@ const nextConfig = {
             },
         ];
     },
+    async rewrites() {
+        return [
+            {
+                source: '/_scripts/faro-sdk.js',
+                destination: 'https://unpkg.com/@grafana/faro-web-sdk@1.18.2/dist/bundle/faro-web-sdk.iife.js',
+            },
+            {
+                source: '/_scripts/umami-sdk.js',
+                destination: 'https://cloud.umami.is/script.js',
+            }
+        ]
+    }
+
 };
 
 export default nextConfig;
